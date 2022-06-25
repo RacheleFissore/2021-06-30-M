@@ -38,12 +38,23 @@ public class FXMLController {
 
     @FXML
     void doContaArchi(ActionEvent event) {
-
+    	try {
+			int n = Integer.parseInt(txtSoglia.getText());
+			txtResult.appendText("\n" + model.contaArchi(n));
+		} catch (NumberFormatException e) {
+			throw e;
+		}
+    	
     }
 
     @FXML
     void doRicerca(ActionEvent event) {
-
+    	try {
+			int n = Integer.parseInt(txtSoglia.getText());
+			txtResult.appendText("\n" + model.trovaSequenza(n));
+		} catch (NumberFormatException e) {
+			throw e;
+		}
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
@@ -58,5 +69,8 @@ public class FXMLController {
 	public void setModel(Model model) {
 		this.model = model ;
 		
+		model.creaGrafo();
+		txtResult.appendText("Grafo creato: " + model.getNVertici() + " vertici, " + model.getNArchi() + " archi\n");
+		txtResult.appendText(model.pesoMinMax());
 	}
 }
