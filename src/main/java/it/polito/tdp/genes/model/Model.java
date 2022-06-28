@@ -81,6 +81,7 @@ public class Model {
 		String string = "";
 		best = new ArrayList<>();
 		List<Integer> parziale = new ArrayList<>();
+		
 		for(Integer vP : grafo.vertexSet()) {
 			parziale.clear();
 			parziale.add(vP);
@@ -91,7 +92,7 @@ public class Model {
 			string += v + "\n";
 		}
 		
-		return string;
+		return string;  
 	}
 
 	private void cerca(List<Integer> parziale, int soglia, Double peso) {
